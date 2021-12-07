@@ -1,0 +1,40 @@
+<h2>{{titulo}}</h2>
+
+
+<div class="container">
+
+    <ul>
+        <li>Cadastro</li>
+    </ul>
+
+    <form #despesaForm="ngForm" (ngSubmit)="lancarDespesa()">
+        
+        <div class="row">
+            <label>Nome: </label>
+            <input type="text" name="nm_despesa" [(ngModel)]="despesa.nm_despesa"/>
+        </div>
+        
+        <div class="row">
+            <label>Data: </label>
+            <input type="text" name="dt_despesa" [(ngModel)]="despesa.dt_despesa" />
+        </div>
+
+        <div class="row">
+            <label>Valor: </label>
+            <input type="text"name="vl_despesa" [(ngModel)]="despesa.vl_despesa"/>
+        </div>
+
+        <div class="row">
+            <label>Registro: </label>
+            <input type="text" name="dt_registro" [(ngModel)]="despesa.dt_registro"/>
+        </div>
+
+        <div class="row">
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+
+  
+    
+
+</div>
