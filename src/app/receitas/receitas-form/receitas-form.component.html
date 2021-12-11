@@ -7,26 +7,26 @@
         <li>Cadastro</li>
     </ul>
 
-    <form #despesaForm="ngForm" (ngSubmit)="lancarDespesa()">
+    <form #receitaForm="ngForm" (ngSubmit)="lancarReceita()">
         
         <div class="row">
             <label>Nome: </label>
-            <input type="text" name="nm_despesa" [(ngModel)]="despesa.nm_despesa"/>
+            <input type="text" name="nm_receita" [(ngModel)]="receita.nm_receita"/>
         </div>
         
         <div class="row">
             <label>Data: </label>
-            <input type="text" name="dt_despesa" [(ngModel)]="despesa.dt_despesa" />
+            <input type="text" name="dt_receita" [(ngModel)]="receita.dt_receita" />
         </div>
 
         <div class="row">
             <label>Valor: </label>
-            <input type="text"name="vl_despesa" [(ngModel)]="despesa.vl_despesa"/>
+            <input type="text"name="vl_receita" [(ngModel)]="receita.vl_receita"/>
         </div>
 
         <div class="row">
             <label>Registro: </label>
-            <input type="text" name="dt_registro" [(ngModel)]="despesa.dt_registro"/>
+            <input type="text" name="dt_registro" [(ngModel)]="receita.dt_registro"/>
         </div>
 
         <div class="row">

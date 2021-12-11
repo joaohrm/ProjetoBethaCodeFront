@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DespesasService } from './despesas.service';
 import { DespesasModule } from './despesas/despesas.module';
+import { ReceitasService } from './receitas.service';
+import { ReceitasModule } from './receitas/receitas.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import { DespesasModule } from './despesas/despesas.module';
     BrowserModule,
     AppRoutingModule,
     DespesasModule,
+    ReceitasModule,
     HttpClientModule
   ],
-  providers: [DespesasService],
+  providers: [DespesasService, ReceitasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

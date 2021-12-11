@@ -1,0 +1,23 @@
+<ul>
+    <li>Lista</li>
+</ul>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>NOME</th>
+            <th>DATA DA DESPESA</th>
+            <th>VALOR</th>
+            <th>REGISTRO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lista of receita">
+            <td>{{lista.nm_receita}}</td>
+            <td>{{lista.dt_receita}}</td>
+            <td>{{lista.vl_receita}}</td>
+            <td>{{lista.dt_registro}}</td>
+        </tr>
+    </tbody>
+</table>
