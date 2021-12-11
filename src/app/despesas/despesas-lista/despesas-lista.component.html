@@ -16,8 +16,9 @@
         <tr *ngFor="let lista of despesa">
             <td>{{lista.nm_despesa}}</td>
             <td>{{lista.dt_despesa}}</td>
-            <td>{{lista.vl_despesa}}</td>
             <td>{{lista.dt_registro}}</td>
+            <td>{{lista.vl_despesa}}</td>
+            
             <td>
                 <button class="btn btn-primary" routerLink="/despesasForm/{{ lista.id }}">
                     <i class="fa fa-pen-square">editar</i>
@@ -27,6 +28,10 @@
                     <i class="fa fa-trash">excluir</i>
                 </button>
             </td>
+        </tr>
+        <tr>
+            <td colspan="3">TOTAL</td>
+            <td>{{soma()}}</td>
         </tr>
     </tbody>
 </table>

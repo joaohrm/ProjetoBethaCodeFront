@@ -14,11 +14,16 @@ export class ReceitasListaComponent implements OnInit {
   receitaSelecionada: Receita = new Receita();
   mensagemSucesso: String = "";
   mensagemErro: String = "";
+  total: number = 0;
 
   constructor(private service: ReceitasService) {}
 
   ngOnInit(): void {
     this.service.listar().subscribe(res => this.receita = res);
+  }
+
+  public soma() {
+    return this.receita.map(linha => linha.vl_receita).reduce((a, b) => a + b, 0);
   }
 
   preparaDelecao(receita: Receita){

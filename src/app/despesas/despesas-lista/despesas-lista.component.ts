@@ -20,6 +20,10 @@ export class DespesasListaComponent implements OnInit {
     this.service.listar().subscribe(res => this.despesa = res);
   }
 
+  public soma() {
+    return this.despesa.map(linha => linha.vl_despesa).reduce((a, b) => a + b, 0);
+  }
+
   preparaDelecao(despesa: Despesa){
     this.despesaSelecionada = despesa;
   }
