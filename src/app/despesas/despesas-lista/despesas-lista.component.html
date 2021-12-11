@@ -18,6 +18,37 @@
             <td>{{lista.dt_despesa}}</td>
             <td>{{lista.vl_despesa}}</td>
             <td>{{lista.dt_registro}}</td>
+            <td>
+                <!--<button class="btn btn-primary" routerLink="/despesasForm/{{ lista.id }}">
+                    <i class="fa fa-pen-square"></i>
+                </button>-->
+            
+                <button class="btn btn-danger ml-1" (click)="preparaDelecao(lista)" data-toggle="modal" data-target="#modalSelecao">
+                    <i class="fa fa-trash">excluir</i>
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
+
+
+<div id="modalSelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="modal-header">
+            <h4>Confirmação</h4>
+        </div>
+
+        <div class="modal-body" *ngIf="despesaSelecionada">
+            Confirma a exclusão da receita: {{ despesaSelecionada.nm_despesa }}?
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-success" (click)="deletarDespesa()" data-dismiss="modal">Confirmar</button>
+            <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+
+        </div>
+    </div>
+</div>

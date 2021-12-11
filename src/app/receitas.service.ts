@@ -19,4 +19,14 @@ export class ReceitasService {
     return this.http.get<Receita[]>('http://localhost:8080/api/receita');
   }
 
+  excluir(receita: Receita): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/receita/${receita.id}`);
+  }
+
+  atualizar(receita: Receita): Observable<any>{
+    return this.http.put<Receita>(`http://localhost:8080/api/receita/${receita.id}`, receita);
+  }
+
+  
+
 }

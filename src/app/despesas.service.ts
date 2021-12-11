@@ -20,4 +20,12 @@ export class DespesasService {
     return this.http.get<Despesa[]>('http://localhost:8080/api/despesas');
   }
 
+  excluir(despesa: Despesa): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/despesas/${despesa.id}`);
+  }
+
+  atualizar(despesa: Despesa): Observable<any>{
+    return this.http.put<Despesa>(`http://localhost:8080/api/despesas/${despesa.id}`, despesa);
+  }
+
 }
