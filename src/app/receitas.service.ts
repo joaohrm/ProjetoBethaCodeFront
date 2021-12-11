@@ -19,6 +19,10 @@ export class ReceitasService {
     return this.http.get<Receita[]>('http://localhost:8080/api/receita');
   }
 
+  getReceitaById(id: number){
+    return this.http.get<Receita>(`http://localhost:8080/api/receita/${id}`);
+  }
+
   excluir(receita: Receita): Observable<any>{
     return this.http.delete<any>(`http://localhost:8080/api/receita/${receita.id}`);
   }

@@ -5,7 +5,8 @@ import { DespesasListaComponent } from './despesas-lista/despesas-lista.componen
 
 const routes: Routes = [
   { path: 'despesasForm', component: DespesasFormComponent },
-  { path: 'despesasLista', component: DespesasListaComponent }
+  { path: 'despesasLista', component: DespesasListaComponent },
+  { path: 'despesasForm/:id', component: DespesasFormComponent }
 ];
 
 @NgModule({

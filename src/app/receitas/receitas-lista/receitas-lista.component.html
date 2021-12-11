@@ -1,5 +1,5 @@
 <ul>
-    <li>Lista</li>
+    <li>Lista de receitas</li>
 </ul>
 
 <div class="row">
@@ -30,9 +30,9 @@
             <td>{{lista.vl_receita}}</td>
             <td>{{lista.dt_registro}}</td>
             <td>
-                <!--<button class="btn btn-primary" routerLink="/receitasForm/{{ lista.id }}">
-                    <i class="fa fa-pen-square"></i>
-                </button>-->
+                <button class="btn btn-primary" routerLink="/receitasForm/{{ lista.id }}">
+                    <i class="fa fa-pen-square">editar</i>
+                </button>
 
                 <button class="btn btn-danger ml-1" (click)="preparaDelecao(lista)" data-toggle="modal" data-target="#modalSelecao">
                     <i class="fa fa-trash">excluir</i>

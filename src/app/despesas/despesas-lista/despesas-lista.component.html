@@ -1,5 +1,5 @@
 <ul>
-    <li>Lista</li>
+    <li>Lista de despesas</li>
 </ul>
 
 
@@ -19,9 +19,9 @@
             <td>{{lista.vl_despesa}}</td>
             <td>{{lista.dt_registro}}</td>
             <td>
-                <!--<button class="btn btn-primary" routerLink="/despesasForm/{{ lista.id }}">
-                    <i class="fa fa-pen-square"></i>
-                </button>-->
+                <button class="btn btn-primary" routerLink="/despesasForm/{{ lista.id }}">
+                    <i class="fa fa-pen-square">editar</i>
+                </button>
             
                 <button class="btn btn-danger ml-1" (click)="preparaDelecao(lista)" data-toggle="modal" data-target="#modalSelecao">
                     <i class="fa fa-trash">excluir</i>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="modal-body" *ngIf="despesaSelecionada">
-            Confirma a exclusão da receita: {{ despesaSelecionada.nm_despesa }}?
+            Confirma a exclusão da despesa: {{ despesaSelecionada.nm_despesa }}?
         </div>
 
         <div class="modal-footer">

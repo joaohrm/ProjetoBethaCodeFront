@@ -20,6 +20,10 @@ export class DespesasService {
     return this.http.get<Despesa[]>('http://localhost:8080/api/despesas');
   }
 
+  getReceitaById(id: number){
+    return this.http.get<Despesa>(`http://localhost:8080/api/despesas/${id}`);
+  }
+
   excluir(despesa: Despesa): Observable<any>{
     return this.http.delete<any>(`http://localhost:8080/api/despesas/${despesa.id}`);
   }

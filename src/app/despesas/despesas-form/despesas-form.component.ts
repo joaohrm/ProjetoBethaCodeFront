@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { DespesasService } from 'src/app/despesas.service';
 
 import { Despesa } from '../despesa';
@@ -13,12 +15,12 @@ export class DespesasFormComponent implements OnInit {
 
   titulo: string;
   //arrDespesas: Despesa[];
-
+  id: number = 0;
   despesa: Despesa;
   sucesso: boolean = false;
   err: String[] = [];
 
-  constructor(private service: DespesasService) { 
+  constructor(private service: DespesasService, private rota: Router, private activatedRoute: ActivatedRoute) { 
 
     this.titulo = "Lista de gastos";
 
@@ -35,6 +37,15 @@ export class DespesasFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let params: Observable<Params> = this.activatedRoute.params;
+    params.subscribe(urlParams => {
+      this.id = urlParams['id'];
+      if(this.id){
+        this.service.getReceitaById(this.id).subscribe(res => { this.despesa = res }, err => { this.despesa = new Despesa(); })
+      }
+    }
+
+    )
   }
 
   lancarDespesa(){
