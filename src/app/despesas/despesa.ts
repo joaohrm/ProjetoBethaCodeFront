@@ -1,4 +1,4 @@
-export class Despesa{
+export class Despesas{
     id:          number = 0;
     nm_despesa:  string = "";
     dt_registro: string = "";

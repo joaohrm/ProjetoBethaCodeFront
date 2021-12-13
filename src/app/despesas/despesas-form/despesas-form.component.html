@@ -1,37 +1,86 @@
-<h2>{{titulo}}</h2>
-
-
-<div class="container">
-
-    <ul>
-        <li>Cadastro</li>
-    </ul>
-
-    <form #despesaForm="ngForm" (ngSubmit)="lancarDespesa()">
-        
-        <div class="row">
-            <label>Nome: </label>
-            <input type="text" name="nm_despesa" [(ngModel)]="despesa.nm_despesa"/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>Despesas</title>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        background-color: rgb(52, 58, 64);
+        width: 450px;
+        height: 500px;
+        padding: 10px;
+        margin-top: 35px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px darkgrey;
+      "
+    >
+      <h2 style="text-align: center; margin-top: 20px; color: white">
+        {{ titulo }}
+      </h2>
+      <form #despesaForm="ngForm" (ngSubmit)="lancarDespesa()">
+        <div
+          class="form-group"
+          style="text-align: center; margin-top: 20px; color: white"
+        >
+          <label>Nome: </label><br />
+          <input
+            type="text"
+            name="nm_despesa"
+            [(ngModel)]="despesa.nm_despesa"
+          />
         </div>
-        
-        <div class="row">
-            <label>Data: </label>
-            <input type="text" name="dt_despesa" [(ngModel)]="despesa.dt_despesa" />
+
+        <div
+          class="form-group"
+          style="text-align: center; margin-top: 20px; color: white"
+        >
+          <label>Data: </label><br />
+          <input
+            type="text"
+            name="dt_despesa"
+            [(ngModel)]="despesa.dt_despesa"
+          />
         </div>
 
-        <div class="row">
-            <label>Valor: </label>
-            <input type="text"name="vl_despesa" [(ngModel)]="despesa.vl_despesa"/>
+        <div
+          class="form-group"
+          style="text-align: center; margin-top: 20px; color: white"
+        >
+          <label>Valor: </label><br />
+          <input
+            type="text"
+            name="vl_despesa"
+            [(ngModel)]="despesa.vl_despesa"
+          />
         </div>
 
-        <div class="row">
-            <label>Registro: </label>
-            <input type="text" name="dt_registro" [(ngModel)]="despesa.dt_registro"/>
+        <div
+          class="form-group"
+          style="text-align: center; margin-top: 20px; color: white"
+        >
+          <label>Registro: </label><br />
+          <input
+            type="text"
+            name="dt_registro"
+            [(ngModel)]="despesa.dt_registro"
+          />
         </div>
 
-        <div class="row">
-            <button type="submit">Salvar</button>
+        <div class="form-group" style="text-align: center; margin-top: 30px">
+          <button type="submit" class="btn btn-outline-success">Salvar</button>
         </div>
-    </form>
-
-</div>
+      </form>
+    </div>
+  </body>
+</html>

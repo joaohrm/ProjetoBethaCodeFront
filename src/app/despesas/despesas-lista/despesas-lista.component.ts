@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DespesasService } from 'src/app/despesas.service';
-import { Despesa } from '../despesa';
+import { Despesas } from '../despesa';
 
 @Component({
   selector: 'app-despesas-lista',
@@ -9,8 +9,8 @@ import { Despesa } from '../despesa';
 })
 export class DespesasListaComponent implements OnInit {
 
-  despesa: Despesa[] = [];
-  despesaSelecionada: Despesa = new Despesa();
+  despesa: Despesas[] = [];
+  despesaSelecionada: Despesas = new Despesas();
   mensagemSucesso: string = "";
   mensagemErro: string = "";   
 
@@ -24,14 +24,14 @@ export class DespesasListaComponent implements OnInit {
     return this.despesa.map(linha => linha.vl_despesa).reduce((a, b) => a + b, 0);
   }
 
-  preparaDelecao(despesa: Despesa){
-    this.despesaSelecionada = despesa;
+  preparaDelecao(despesas: Despesas){
+    this.despesaSelecionada = despesas;
   }
 
-  deletarDespesa(){
+  deletarDespesas(){
     this.service.excluir(this.despesaSelecionada).subscribe(
       res => {
-        this.mensagemSucesso = 'Receita removida com sucesso!';
+        this.mensagemSucesso = 'Despesa removida com sucesso!';
         this.mensagemErro = "";
         this.ngOnInit();
       },

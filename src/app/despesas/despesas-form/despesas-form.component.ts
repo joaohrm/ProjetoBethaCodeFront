@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DespesasService } from 'src/app/despesas.service';
 
-import { Despesa } from '../despesa';
+import { Despesas } from '../despesa';
 
 
 @Component({
@@ -16,15 +16,15 @@ export class DespesasFormComponent implements OnInit {
   titulo: string;
   //arrDespesas: Despesa[];
   id: number = 0;
-  despesa: Despesa;
+  despesa: Despesas;
   sucesso: boolean = false;
   err: String[] = [];
 
   constructor(private service: DespesasService, private rota: Router, private activatedRoute: ActivatedRoute) { 
 
-    this.titulo = "Lista de gastos";
+    this.titulo = "Cadastro de Despesas";
 
-    this.despesa = new Despesa();
+    this.despesa = new Despesas();
     /*this.despesa.nome = "123";
     this.despesa.dataVencimento = "123";
     this.despesa.valor = 123;
@@ -41,12 +41,12 @@ export class DespesasFormComponent implements OnInit {
     params.subscribe(urlParams => {
       this.id = urlParams['id'];
       if(this.id){
-        this.service.getReceitaById(this.id).subscribe(res => { this.despesa = res }, err => { this.despesa = new Despesa(); })
+        this.service.getReceitaById(this.id).subscribe(res => { console.log(res); this.despesa = res }, err => { this.despesa = new Despesas(); })
       }
     }
-
     )
   }
+
 
   lancarDespesa(){
     console.log('lançando despesa!');

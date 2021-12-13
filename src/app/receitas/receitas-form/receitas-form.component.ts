@@ -21,7 +21,7 @@ export class ReceitasFormComponent implements OnInit {
 
   constructor(private service: ReceitasService, private rota: Router, private activatedRoute: ActivatedRoute) {
 
-    this.titulo = "Lançamento de receita";
+    this.titulo = "Cadastro de Receitas";
 
     this.receita = new Receita();
 

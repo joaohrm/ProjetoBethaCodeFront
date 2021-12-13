@@ -1,71 +1,98 @@
-<ul>
-    <li>Lista de receitas</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="text-align: center; margin: 25px">
+      <h3>Receita Total</h3>
+      <span>{{ soma() }}</span>
+    </div>
 
-<div class="row">
-    <div class="col-md-12">
+    <h2 style="text-align: center">Lançamentos de Receitas</h2>
+    <div class="row">
+      <div class="col-md-12">
         <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
-            {{ mensagemSucesso }}
+          {{ mensagemSucesso }}
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="mensagemErro">
-            {{ mensagemErro }}
+          {{ mensagemErro }}
         </div>
+      </div>
     </div>
-</div>
 
-<table class="table">
-    <thead>
+    <table class="table table-hover">
+      <thead class="thead-light">
         <tr>
-            <th>NOME</th>
-            <th>DATA DA DESPESA</th>
-            <th>REGISTRO</th>
-            <th>VALOR</th>
-            <th></th>
+          <th>NOME</th>
+          <th>DATA DO RECEBIMENTO</th>
+          <th>REGISTRO</th>
+          <th>VALOR</th>
+          <th>OPÇÕES</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr *ngFor="let lista of receita">
-            <td>{{lista.nm_receita}}</td>
-            <td>{{lista.dt_receita}}</td>
-            <td>{{lista.dt_registro}}</td>
-            <td>{{lista.vl_receita}}</td>
-            
-            <td>
-                <button class="btn btn-primary" routerLink="/receitasForm/{{ lista.id }}">
-                    <i class="fa fa-pen-square">editar</i>
-                </button>
+          <td>{{ lista.nm_receita }}</td>
+          <td>{{ lista.dt_receita }}</td>
+          <td>{{ lista.dt_registro }}</td>
+          <td>{{ lista.vl_receita }}</td>
 
-                <button class="btn btn-danger ml-1" (click)="preparaDelecao(lista)" data-toggle="modal" data-target="#modalSelecao">
-                    <i class="fa fa-trash">excluir</i>
-                </button>
-            </td>
+          <td>
+            <button
+              class="btn btn-primary"
+              routerLink="/receitasForm/{{ lista.id }}"
+            >
+              <i class="fa fa-pen-square">Editar</i>
+            </button>
+
+            <button
+              class="btn btn-danger ml-1"
+              (click)="preparaDelecao(lista)"
+              data-toggle="modal"
+              data-target="#modalSelecao"
+            >
+              <i class="fa fa-trash">Excluir</i>
+            </button>
+          </td>
         </tr>
-        <tr>
-            <td colspan="3">TOTAL</td>
-            <td>{{soma()}}</td>
-            <td></td>
-        </tr>
-    </tbody>
+      </tbody>
+    </table>
 
-</table>
-
-<div id="modalSelecao" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div id="modalSelecao" class="modal fade" role="dialog">
+      <div class="modal-dialog">
         <div class="modal-content">
-            
-            <div class="modal-header">
-                <h4>Confirmação</h4>
-            </div>
-            
-            <div class="modal-body" *ngIf="receitaSelecionada">
-                Confirma a exclusão da receita: {{ receitaSelecionada.nm_receita  }}?
-            </div>
+          <div class="modal-header">
+            <h4>Confirmação</h4>
+          </div>
 
-            <div class="modal-footer">
-                <button class="btn btn-success" (click)="deletarReceita()" data-dismiss="modal">Confirmar</button>
-                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            </div>
+          <div class="modal-body" *ngIf="receitaSelecionada">
+            Confirma a exclusão da receita: {{ receitaSelecionada.nm_receita }}?
+          </div>
 
+          <div class="modal-footer">
+            <button
+              class="btn btn-success"
+              (click)="deletarReceita()"
+              data-dismiss="modal"
+            >
+              Confirmar
+            </button>
+            <button class="btn btn-danger" data-dismiss="modal">
+              Cancelar
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </body>
+</html>
