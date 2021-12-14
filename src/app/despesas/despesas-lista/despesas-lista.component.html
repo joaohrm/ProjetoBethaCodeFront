@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <title>Document</title>
-  </head>
-  <body>
+<style>.modal.fade.show { display: block; background: #99999977;  }</style>
     <div style="text-align: center; margin: 25px">
       <h3>Despesa Total</h3>
       <span>{{ soma() }}</span>
@@ -56,21 +42,16 @@
               <i class="fa fa-pen-square">editar</i>
             </button>
 
-            <button
-              class="btn btn-danger ml-1"
-              (click)="preparaDelecao(lista)"
-              data-toggle="modal"
-              data-target="#modalSelecao"
-            >
-              <i class="fa fa-trash">excluir</i>
+            <button type="button" class="btn btn-danger ml-1" data-toggle="modal" data-target="#modalSelecao" (click)="preparaDelecao(lista)">
+              excluir
             </button>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <div id="modalSelecao" class="modal fade" role="dialog">
-      <div class="modal-dialog">
+    <div id="modalSelecao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h4>Confirmação</h4>
@@ -84,16 +65,15 @@
             <button
               class="btn btn-success"
               (click)="deletarDespesas()"
-              data-dismiss="modal"
+              
             >
               Confirmar
             </button>
-            <button class="btn btn-danger" data-dismiss="modal">
+            <button class="btn btn-danger" (click)="esconderModal()">
               Cancelar
             </button>
           </div>
         </div>
       </div>
     </div>
-  </body>
-</html>
+

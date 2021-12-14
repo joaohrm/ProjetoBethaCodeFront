@@ -21,9 +21,9 @@ export class ReceitasFormComponent implements OnInit {
 
   constructor(private service: ReceitasService, private rota: Router, private activatedRoute: ActivatedRoute) {
 
-    this.titulo = "Cadastro de Receitas";
-
+    this.titulo = "Cadastro de Receita";
     this.receita = new Receita();
+    
 
    }
 
@@ -32,7 +32,11 @@ export class ReceitasFormComponent implements OnInit {
     params.subscribe(urlParams => {
       this.id = urlParams['id'];
       if(this.id){
+        this.titulo = "Alteração de Receita";
         this.service.getReceitaById(this.id).subscribe(res => { this.receita = res }, err => { this.receita = new Receita(); })
+      } else {
+        this.titulo = "Cadastro de Receita";
+        this.receita = new Receita();
       }
     }
 
@@ -45,6 +49,9 @@ export class ReceitasFormComponent implements OnInit {
       this.sucesso = true;
       this.err = [];
       this.receita = res;
+      this.id = 0;
+      this.ngOnInit();
+      window.location.href = '/receitasLista';
     }, errorResponse => {
       this.err = errorResponse.error.erros;
       this.sucesso = false;

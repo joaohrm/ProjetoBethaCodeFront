@@ -14,7 +14,6 @@ import { Despesas } from '../despesa';
 export class DespesasFormComponent implements OnInit {
 
   titulo: string;
-  //arrDespesas: Despesa[];
   id: number = 0;
   despesa: Despesas;
   sucesso: boolean = false;
@@ -22,17 +21,8 @@ export class DespesasFormComponent implements OnInit {
 
   constructor(private service: DespesasService, private rota: Router, private activatedRoute: ActivatedRoute) { 
 
-    this.titulo = "Cadastro de Despesas";
-
+    this.titulo = "Cadastro de Despesa";
     this.despesa = new Despesas();
-    /*this.despesa.nome = "123";
-    this.despesa.dataVencimento = "123";
-    this.despesa.valor = 123;
-    this.despesa.dataRegistro = "123";*/
-
-    //let novaDespesa = new Despesa("06/12/2021");
-
-    //this.arrDespesas = [novaDespesa];
 
   }
 
@@ -41,7 +31,11 @@ export class DespesasFormComponent implements OnInit {
     params.subscribe(urlParams => {
       this.id = urlParams['id'];
       if(this.id){
+        this.titulo = "Alteração de Despesa";
         this.service.getReceitaById(this.id).subscribe(res => { console.log(res); this.despesa = res }, err => { this.despesa = new Despesas(); })
+      } else {
+        this.titulo = "Cadastro de Despesa";
+        this.despesa = new Despesas();
       }
     }
     )
@@ -54,6 +48,9 @@ export class DespesasFormComponent implements OnInit {
       this.sucesso = true;
       this.err = [];
       this.despesa = res;
+      this.id = 0;
+      this.ngOnInit();
+      window.location.href = '/despesasLista';
     }, errorResponse => {
       this.err = errorResponse.error.erros;
       this.sucesso = false;
