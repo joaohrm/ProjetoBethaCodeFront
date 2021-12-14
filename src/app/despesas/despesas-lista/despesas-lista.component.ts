@@ -26,6 +26,11 @@ export class DespesasListaComponent implements OnInit {
 
   preparaDelecao(despesas: Despesas){
     this.despesaSelecionada = despesas;
+    this.esconderModal();
+  }
+
+  esconderModal(){
+    document.getElementById('modalSelecao')?.classList.toggle('show');
   }
 
   deletarDespesas(){
@@ -34,12 +39,16 @@ export class DespesasListaComponent implements OnInit {
         this.mensagemSucesso = 'Despesa removida com sucesso!';
         this.mensagemErro = "";
         this.ngOnInit();
+        this.esconderModal();
       },
       err => {
         this.mensagemSucesso = "";
         this.mensagemErro = 'Ocorreu um erro ao excluir a receita!';
+        this.esconderModal();
       }
+      
     )
+    
   }
 
 }

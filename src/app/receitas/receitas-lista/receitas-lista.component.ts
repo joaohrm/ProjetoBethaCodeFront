@@ -26,8 +26,13 @@ export class ReceitasListaComponent implements OnInit {
     return this.receita.map(linha => linha.vl_receita).reduce((a, b) => a + b, 0);
   }
 
+  esconderModal(){
+    document.getElementById('modalSelecao')?.classList.toggle('show');
+  }
+
   preparaDelecao(receita: Receita){
     this.receitaSelecionada = receita;
+    this.esconderModal();
   }
 
   deletarReceita(){
@@ -36,10 +41,12 @@ export class ReceitasListaComponent implements OnInit {
         this.mensagemSucesso = 'Receita removida com sucesso!';
         this.mensagemErro = "";
         this.ngOnInit();
+        this.esconderModal();
       },
       err => {
         this.mensagemSucesso = "";
         this.mensagemErro = 'Ocorreu um erro ao excluir a receita!';
+        this.esconderModal();
       }
     )
   }
